@@ -40,9 +40,17 @@ npm install
 npm start
 ```
 
+In order to run properly, the application required a valid KEY for authentication with API-Footaball. I would make my key public since this is a challenge repo and I encourage others to built it as well, but this is agains GitHub's privacy and security policies. To run it yourself, create a .env file on the root folder and type the following:
+
+```
+REACT_APP_API_FOOTBALL_KEY=yourkey
+```
+
+
 ## Final considerations
 The project was really fun to build! As a software engineer and team leader to a few projects it's not often that I get to just build, and when I do I always recall why I develop for a living. It's amazing. I got to put to practice a few UX concepts I'm always learning about, such as empty states in the dashboard for each of the information panels. Overall, a great experience. Finally, I did left some requirements not attended, such as:
 * **Unit testing** - Not implemented
 * **Table sort** - Sorting alphabetically only
 * **Soccer field formation change** - Not implemented
+
 This was due to my availability during the given timestamp, but surely something that could be implemented in a few more hours have I had the time.

@@ -40,7 +40,7 @@ export default class Creation extends React.Component {
                 "withCredentials": "false",
                 "method": "GET",
                 "headers": {
-                    "x-rapidapi-key": "a987d74821msh1e7fc476b48eb6dp1cfab0jsn9f1e0d274b6f",
+                    "x-rapidapi-key": process.env.REACT_APP_API_FOOTBALL_KEY,
                     "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
                 }
             })
