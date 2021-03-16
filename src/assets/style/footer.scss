@@ -1,0 +1,14 @@
+@import "colorDictionary.scss";
+
+#footer {
+    font-family: "roboto-regular";
+    font-size: 0.75rem;
+    background-color: $grey;
+    position: relative;
+    width: 100%;
+    max-height: 40px;
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

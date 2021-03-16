@@ -1,0 +1,52 @@
+@import "colorDictionary.scss";
+
+#header {
+    font-family: "roboto";
+    background-image: linear-gradient(to right, $pink, $purple);
+    max-height: 50px;
+    min-height: 50px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+
+    .logo {
+        display: inline-flex;
+        align-items: center;
+        color: white;
+        img {
+            height: 40px;
+            width: 40px;
+            float: left;
+        }
+        p {
+            margin-left: 10px;
+            color: white;
+            font-family: "roboto-medium";
+        }
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        font-family: "roboto-medium";
+        display: inline-flex;
+        float: right;
+        p {
+            font-size: 0.85rem;
+            color: white;
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $dark-grey;
+            border-radius: 100%;
+            width: 35px;
+            height: 35px;
+            background-color: white;
+            margin-left: 10px;
+        }
+    }
+}

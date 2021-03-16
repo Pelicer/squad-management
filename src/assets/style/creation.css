@@ -1,0 +1,498 @@
+@font-face {
+  font-family: roboto-regular;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: roboto-light;
+  src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: roboto-thin;
+  src: url(../fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+  font-family: roboto-medium;
+  src: url(../fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: roboto-black;
+  src: url(../fonts/Roboto-Black.ttf);
+}
+
+@font-face {
+  font-family: roboto-bold;
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+
+html,
+body {
+  margin: 0;
+}
+
+#creation-content {
+  background-color: #f7f3f7;
+  padding: 35px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 50px;
+}
+
+#creation-content .panel {
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 50px;
+}
+
+#creation-content .panel .head {
+  padding: 0 5%;
+  font-family: "roboto-bold";
+  font-size: 1.5rem;
+  color: #552c8a;
+  border-bottom: 1px solid #eeeeee;
+}
+
+#creation-content .panel .head .wrapper {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#creation-content .panel .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  margin: 0 15%;
+}
+
+#creation-content .panel .container .section-title {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-family: "roboto-medium";
+  color: grey;
+}
+
+@media (max-width: 768px) {
+  #creation-content .panel .container .section-title {
+    -ms-grid-column: auto;
+        grid-column-start: auto;
+    grid-column-end: auto;
+  }
+}
+
+#creation-content .panel .container .team-info,
+#creation-content .panel .container .config-info {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 0 100px;
+}
+
+@media (max-width: 768px) {
+  #creation-content .panel .container .team-info,
+  #creation-content .panel .container .config-info {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+#creation-content .panel .container .team-info label,
+#creation-content .panel .container .config-info label {
+  font-family: "roboto-bold";
+  font-size: 0.85rem;
+  color: #333333;
+}
+
+#creation-content .panel .container .team-info label:nth-of-type(1),
+#creation-content .panel .container .config-info label:nth-of-type(1) {
+  margin: 0;
+}
+
+#creation-content .panel .container .team-info input,
+#creation-content .panel .container .team-info textarea,
+#creation-content .panel .container .config-info input,
+#creation-content .panel .container .config-info textarea {
+  font-family: "roboto-regular";
+  font-size: 0.8rem;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: 1px solid #e9e3e9;
+  margin-top: 10px;
+}
+
+#creation-content .panel .container .team-info .team-types,
+#creation-content .panel .container .config-info .team-types {
+  position: relative;
+  display: inline;
+}
+
+#creation-content .panel .container .team-info .team-types label,
+#creation-content .panel .container .config-info .team-types label {
+  position: relative;
+}
+
+#creation-content .panel .container .team-info .team-types input,
+#creation-content .panel .container .config-info .team-types input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+#creation-content .panel .container .team-info .team-types input:checked ~ .checkmark,
+#creation-content .panel .container .config-info .team-types input:checked ~ .checkmark {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#8a206f), to(#a9397a));
+  background-image: linear-gradient(to top, #8a206f, #a9397a);
+}
+
+#creation-content .panel .container .team-info .team-types .checkmark,
+#creation-content .panel .container .config-info .team-types .checkmark {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  border: 2px solid white;
+}
+
+#creation-content .panel .container .team-info .team-types .checkmark::after,
+#creation-content .panel .container .config-info .team-types .checkmark::after {
+  content: "";
+  background: none;
+  border: 1px solid rgba(51, 51, 51, 0.3);
+  border-radius: 100%;
+  width: 20px;
+  position: absolute;
+  height: 20px;
+  margin-left: -3.2px;
+  margin-top: -3px;
+}
+
+#creation-content .panel .container .team-info .team-types .checkmark:hover,
+#creation-content .panel .container .config-info .team-types .checkmark:hover {
+  background-color: #e9e3e9;
+}
+
+#creation-content .panel .container .team-info .team-types label,
+#creation-content .panel .container .config-info .team-types label {
+  padding-left: 35px;
+  font-family: "roboto-regular";
+  color: rgba(51, 51, 51, 0.3);
+}
+
+#creation-content .panel .container .team-info .team-types label:nth-of-type(2),
+#creation-content .panel .container .config-info .team-types label:nth-of-type(2) {
+  margin-left: 30px;
+}
+
+#creation-content .panel .container .team-info .area-wrapper,
+#creation-content .panel .container .config-info .area-wrapper {
+  height: 100%;
+}
+
+#creation-content .panel .container .team-info div,
+#creation-content .panel .container .config-info div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#creation-content .panel .container .team-info div .textarea,
+#creation-content .panel .container .config-info div .textarea {
+  display: inline;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: 1px solid #e9e3e9;
+  margin-top: 10px;
+  resize: none;
+  height: 100%;
+  min-height: 100px;
+}
+
+#creation-content .panel .container .team-info div .textarea span,
+#creation-content .panel .container .config-info div .textarea span {
+  position: relative;
+  border-radius: 20px;
+  padding: 5px 10px;
+  min-width: 65px;
+  background-color: #bf0e4f;
+  color: white;
+  font-family: "roboto-regular";
+  font-size: 0.75rem;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+#creation-content .panel .container .team-info div .textarea span b,
+#creation-content .panel .container .config-info div .textarea span b {
+  cursor: pointer;
+  font-family: "roboto-light";
+  position: absolute;
+  right: 10px;
+}
+
+#creation-content .panel .container .team-info div .textarea input,
+#creation-content .panel .container .config-info div .textarea input {
+  outline: none;
+  border: none;
+}
+
+#creation-content .panel .container .team-info div div,
+#creation-content .panel .container .config-info div div {
+  margin-top: 30px;
+}
+
+#creation-content .panel .container .team-info .incorrectInfo .formation-field,
+#creation-content .panel .container .config-info .incorrectInfo .formation-field {
+  border: 3px solid #bf0e4f;
+}
+
+#creation-content .panel .container .team-info .incorrectInfo label,
+#creation-content .panel .container .config-info .incorrectInfo label {
+  color: #bf0e4f;
+}
+
+#creation-content .panel .container .team-info .incorrectInfo input,
+#creation-content .panel .container .team-info .incorrectInfo .textarea,
+#creation-content .panel .container .config-info .incorrectInfo input,
+#creation-content .panel .container .config-info .incorrectInfo .textarea {
+  border: 1px solid #bf0e4f;
+}
+
+#creation-content .panel .container .config-info {
+  margin-top: 50px;
+}
+
+@media (max-width: 992px) {
+  #creation-content .panel .container .config-info .section-title {
+    -ms-grid-column: auto;
+        grid-column-start: auto;
+    grid-column-end: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  #creation-content .panel .container .config-info {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+#creation-content .panel .container .config-info .formation-selection {
+  display: inline;
+}
+
+#creation-content .panel .container .config-info .formation-selection select {
+  margin-left: 30px;
+  font-family: "roboto-bold";
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 35%;
+}
+
+#creation-content .panel .container .config-info .formation-field {
+  position: relative;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#552c8a), to(#a9397a));
+  background-image: linear-gradient(to top, #552c8a, #a9397a);
+  height: 600px;
+  border-radius: 5px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#creation-content .panel .container .config-info .formation-field .position {
+  position: relative;
+  margin: 0;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #333333;
+  border-radius: 100%;
+  color: white;
+  font-family: "roboto-light";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+#creation-content .panel .container .config-info .formation-field .position::before {
+  content: "";
+  background: none;
+  border: 1px dashed #a775c6;
+  border-radius: 100%;
+  width: 70px;
+  position: absolute;
+  height: 70px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#creation-content .panel .container .config-info .formation-field .position .tooltip {
+  z-index: 2;
+  position: absolute;
+  margin-top: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: left;
+  display: none;
+  -ms-grid-columns: 80% 20%;
+      grid-template-columns: 80% 20%;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e9e3e9));
+  background-image: linear-gradient(to bottom, white, #e9e3e9);
+  left: 100%;
+  margin-left: 10px;
+  margin-top: -5px;
+  border: 1px solid rgba(51, 51, 51, 0.6);
+}
+
+#creation-content .panel .container .config-info .formation-field .position .tooltip p {
+  font-family: "roboto-bold";
+  color: #333333;
+  font-size: 0.85rem;
+  padding: 5px 0;
+  margin: 0;
+}
+
+#creation-content .panel .container .config-info .formation-field .position .tooltip p span {
+  margin-left: 5px;
+  font-family: "roboto-medium";
+  color: #bf0e4f;
+}
+
+#creation-content .panel .container .config-info .formation-field .position:hover .tooltip {
+  display: -ms-grid;
+  display: grid;
+}
+
+#creation-content .panel .container .config-info .formation-field .centered {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+#creation-content .panel .container .config-info .formation-field .middle::after {
+  content: "";
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  width: 95px;
+  position: absolute;
+  height: 95px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#creation-content .panel .container .config-info .formation-field::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#creation-content .panel .container .config-info button {
+  cursor: pointer;
+  outline: none;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#552c8a), to(#a9397a));
+  background-image: linear-gradient(to top, #552c8a, #a9397a);
+  border-radius: 5px;
+  height: 50px;
+  font-size: 1rem;
+  font-family: "roboto-bold";
+  color: white;
+  border: none;
+  margin-top: 20px;
+}
+
+#creation-content .panel .container .config-info .players-list {
+  margin: 0;
+}
+
+#creation-content .panel .container .config-info .players-list .player {
+  cursor: pointer;
+  margin-top: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80% 20%;
+      grid-template-columns: 80% 20%;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e9e3e9));
+  background-image: linear-gradient(to bottom, white, #e9e3e9);
+  border: 2px dashed #e9e3e9;
+}
+
+#creation-content .panel .container .config-info .players-list .player p {
+  font-family: "roboto-bold";
+  color: #333333;
+  font-size: 0.85rem;
+  padding: 5px 0;
+  margin: 0;
+}
+
+#creation-content .panel .container .config-info .players-list .player p span {
+  margin-left: 5px;
+  font-family: "roboto-medium";
+  color: #bf0e4f;
+}
+
+#creation-content .panel .container .config-info .players-list .emptyState {
+  font-family: "roboto-regular";
+  color: rgba(51, 51, 51, 0.6);
+  text-align: center;
+}
+/*# sourceMappingURL=creation.css.map */

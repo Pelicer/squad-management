@@ -1,0 +1,372 @@
+@import "colorDictionary.scss";
+
+html,
+body {
+    margin: 0;
+}
+
+#creation-content {
+    background-color: $light-grey;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 50px;
+    .panel {
+        background-color: white;
+        border-radius: 10px;
+        padding-bottom: 50px;
+        .head {
+            padding: 0 5%;
+            font-family: "roboto-bold";
+            font-size: 1.5rem;
+            color: $dark-purple;
+            border-bottom: 1px solid #eeeeee;
+
+            .wrapper {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            margin: 0 15%;
+
+            .section-title {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-family: "roboto-medium";
+                color: grey;
+
+                @media (max-width: 768px) {
+                    grid-column-start: auto;
+                    grid-column-end: auto;
+                }
+            }
+
+            .team-info,
+            .config-info {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+                grid-gap: 0 100px;
+
+                @media (max-width: 768px) {
+                    grid-template-columns: 1fr;
+                }
+
+                label {
+                    font-family: "roboto-bold";
+                    font-size: 0.85rem;
+                    color: #333333;
+                    &:nth-of-type(1) {
+                        margin: 0;
+                    }
+                }
+
+                input,
+                textarea {
+                    font-family: "roboto-regular";
+                    font-size: 0.8rem;
+                    padding: 7px 10px;
+                    border-radius: 5px;
+                    border: 1px solid $grey;
+                    margin-top: 10px;
+                }
+                .team-types {
+                    position: relative;
+                    display: inline;
+                    label {
+                        position: relative;
+                    }
+
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        height: 0;
+                        width: 0;
+                        &:checked {
+                            ~ .checkmark {
+                                background-image: linear-gradient(to top, $purple, $light-pink);
+                            }
+                        }
+                    }
+                    .checkmark {
+                        cursor: pointer;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 15px;
+                        width: 15px;
+                        border-radius: 100%;
+                        border: 2px solid white;
+                        &::after {
+                            content: "";
+                            background: none;
+                            border: 1px solid rgba($dark-grey, 0.3);
+                            border-radius: 100%;
+                            width: 20px;
+                            position: absolute;
+                            height: 20px;
+                            margin-left: -3.2px;
+                            margin-top: -3px;
+                        }
+                        &:hover {
+                            background-color: $grey;
+                        }
+                    }
+                    label {
+                        padding-left: 35px;
+                        font-family: "roboto-regular";
+                        color: rgba($dark-grey, 0.3);
+
+                        &:nth-of-type(2) {
+                            margin-left: 30px;
+                        }
+                    }
+                }
+
+                .area-wrapper {
+                    height: 100%;
+                }
+                div {
+                    display: flex;
+                    flex-direction: column;
+
+                    .textarea {
+                        display: inline;
+                        padding: 7px 10px;
+                        border-radius: 5px;
+                        border: 1px solid $grey;
+                        margin-top: 10px;
+                        resize: none;
+                        height: 100%;
+                        min-height: 100px;
+                        span {
+                            position: relative;
+                            border-radius: 20px;
+                            padding: 5px 10px;
+                            min-width: 65px;
+                            background-color: $pink;
+                            color: white;
+                            font-family: "roboto-regular";
+                            font-size: 0.75rem;
+                            float: left;
+                            margin-left: 10px;
+                            margin-top: 10px;
+
+                            b {
+                                cursor: pointer;
+                                font-family: "roboto-light";
+                                position: absolute;
+                                right: 10px;
+                            }
+                        }
+                        input {
+                            outline: none;
+                            border: none;
+                        }
+                    }
+                    div {
+                        margin-top: 30px;
+                    }
+                }
+
+                .incorrectInfo {
+                    .formation-field {
+                        border: 3px solid $pink;
+                    }
+                    label {
+                        color: $pink;
+                    }
+                    input,
+                    .textarea {
+                        border: 1px solid $pink;
+                    }
+                }
+            }
+
+            .config-info {
+                margin-top: 50px;
+
+                .section-title {
+                    @media (max-width: 992px) {
+                        grid-column-start: auto;
+                        grid-column-end: auto;
+                    }
+                }
+
+                @media (max-width: 992px) {
+                    grid-template-columns: 1fr;
+                }
+
+                .formation-selection {
+                    display: inline;
+                    select {
+                        margin-left: 30px;
+                        font-family: "roboto-bold";
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        width: 35%;
+                    }
+                }
+
+                .formation-field {
+                    position: relative;
+                    background-image: linear-gradient(to top, $dark-purple, $light-pink);
+                    height: 600px;
+                    border-radius: 5px;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: auto;
+                    justify-items: center;
+                    align-items: center;
+
+                    .position {
+                        position: relative;
+                        margin: 0;
+                        width: 60px;
+                        height: 60px;
+                        background-color: rgba(white, 0.5);
+                        border: 1px solid $dark-grey;
+                        border-radius: 100%;
+                        color: white;
+                        font-family: "roboto-light";
+                        display: flex;
+                        justify-content: center;
+                        text-align: center;
+                        font-size: 1.75rem;
+                        cursor: pointer;
+
+                        &::before {
+                            content: "";
+                            background: none;
+                            border: 1px dashed rgba($light-purple, 1);
+                            border-radius: 100%;
+                            width: 70px;
+                            position: absolute;
+                            height: 70px;
+                            align-self: center;
+                        }
+
+                        .tooltip {
+                            z-index: 2;
+                            position: absolute;
+                            margin-top: 10px;
+                            width: max-content;
+                            text-align: left;
+                            display: none;
+                            grid-template-columns: 80% 20%;
+                            grid-template-rows: auto;
+                            border-radius: 5px;
+                            padding: 10px 20px;
+                            background-image: linear-gradient(to bottom, white, #e9e3e9);
+                            left: 100%;
+                            margin-left: 10px;
+                            margin-top: -5px;
+                            border: 1px solid rgba($dark-grey, 0.6);
+
+                            p {
+                                font-family: "roboto-bold";
+                                color: $dark-grey;
+                                font-size: 0.85rem;
+                                padding: 5px 0;
+                                margin: 0;
+                                span {
+                                    margin-left: 5px;
+                                    font-family: "roboto-medium";
+                                    color: $pink;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            .tooltip {
+                                display: grid;
+                            }
+                        }
+                    }
+
+                    .centered {
+                        grid-column-start: 1;
+                        grid-column-end: 4;
+                    }
+
+                    .middle {
+                        &::after {
+                            content: "";
+                            background: none;
+                            border: 1px solid rgba(white, 0.3);
+                            border-radius: 100%;
+                            width: 95px;
+                            position: absolute;
+                            height: 95px;
+                            align-self: center;
+                        }
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 100%;
+                        height: 1px;
+                        background-color: rgba(white, 0.3);
+                        align-self: center;
+                    }
+                }
+                button {
+                    cursor: pointer;
+                    outline: none;
+                    background-image: linear-gradient(to top, $dark-purple, $light-pink);
+                    border-radius: 5px;
+                    height: 50px;
+                    font-size: 1rem;
+                    font-family: "roboto-bold";
+                    color: white;
+                    border: none;
+                    margin-top: 20px;
+                }
+                .players-list {
+                    margin: 0;
+                    .player {
+                        cursor: pointer;
+                        margin-top: 10px;
+                        display: grid;
+                        grid-template-columns: 80% 20%;
+                        grid-template-rows: auto;
+                        border-radius: 5px;
+
+                        padding: 10px 20px;
+                        background-image: linear-gradient(to bottom, white, $grey);
+                        border: 2px dashed $grey;
+
+                        p {
+                            font-family: "roboto-bold";
+                            color: $dark-grey;
+                            font-size: 0.85rem;
+                            padding: 5px 0;
+                            margin: 0;
+                            span {
+                                margin-left: 5px;
+                                font-family: "roboto-medium";
+                                color: $pink;
+                            }
+                        }
+                    }
+                    .emptyState {
+                        font-family: "roboto-regular";
+                        color: rgba($dark-grey, 0.6);
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

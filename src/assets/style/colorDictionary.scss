@@ -1,0 +1,38 @@
+$pink: rgb(191, 14, 79);
+$light-pink: rgb(169, 57, 122);
+$light-purple: rgb(167, 117, 198);
+$purple: rgb(138, 32, 111);
+$dark-purple: rgb(85, 44, 138);
+$light-grey: rgb(247, 243, 247);
+$grey: rgb(233, 227, 233);
+$dark-grey: rgb(51, 51, 51);
+
+@font-face {
+    font-family: roboto-regular;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: roboto-light;
+    src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: roboto-thin;
+    src: url(../fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: roboto-medium;
+    src: url(../fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: roboto-black;
+    src: url(../fonts/Roboto-Black.ttf);
+}
+
+@font-face {
+    font-family: roboto-bold;
+    src: url(../fonts/Roboto-Bold.ttf);
+}

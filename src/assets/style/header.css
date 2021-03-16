@@ -1,0 +1,105 @@
+@font-face {
+  font-family: roboto-regular;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: roboto-light;
+  src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: roboto-thin;
+  src: url(../fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+  font-family: roboto-medium;
+  src: url(../fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: roboto-black;
+  src: url(../fonts/Roboto-Black.ttf);
+}
+
+@font-face {
+  font-family: roboto-bold;
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+
+#header {
+  font-family: "roboto";
+  background-image: -webkit-gradient(linear, left top, right top, from(#bf0e4f), to(#8a206f));
+  background-image: linear-gradient(to right, #bf0e4f, #8a206f);
+  max-height: 50px;
+  min-height: 50px;
+  padding: 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header .logo {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+#header .logo img {
+  height: 40px;
+  width: 40px;
+  float: left;
+}
+
+#header .logo p {
+  margin-left: 10px;
+  color: white;
+  font-family: "roboto-medium";
+}
+
+#header .user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  font-family: "roboto-medium";
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  float: right;
+}
+
+#header .user-info p {
+  font-size: 0.85rem;
+  color: white;
+}
+
+#header .user-info span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #333333;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  margin-left: 10px;
+}
+/*# sourceMappingURL=header.css.map */
