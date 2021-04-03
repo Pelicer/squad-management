@@ -185,9 +185,9 @@ export default class Creation extends React.Component {
         console.log(teamsList);
         console.log(this.state);
         if (teamsList !== null) {
-            if (this.state.teamId == "") {
+            if (this.state.teamId === "") {
                 if (this.checkFields(this.state)) {
-                    this.state.teamId = uuidv4();
+                    this.setState({ teamID: uuidv4() });
                     delete this.state.playersSearchList;
                     teamsList.push(this.state);
                     localStorage.setItem("teamsList", JSON.stringify(teamsList));
@@ -216,7 +216,7 @@ export default class Creation extends React.Component {
             }
         } else {
             if (this.checkFields(this.state)) {
-                this.state.teamId = uuidv4();
+                this.setState({ teamID: uuidv4() });
                 delete this.state.playersSearchList;
                 teamsList.push(this.state);
                 localStorage.setItem("teamsList", JSON.stringify(teamsList));
@@ -264,9 +264,9 @@ export default class Creation extends React.Component {
 
     playerDrop(ev) {
         ev.preventDefault();
-        let data = ev.dataTransfer.getData("playerId");
+        let data = parseInt(ev.dataTransfer.getData("playerId"));
         let player = this.state.playersSearchList.filter(function (p) {
-            return p.id == data;
+            return p.id === data;
         })[0];
         player.position = ev.target.id.split("_")[1];
         this.addPlayerToTeam(player);
@@ -363,7 +363,7 @@ export default class Creation extends React.Component {
                                     {
                                         [...Array(11)].map((o, i) => {
                                             let player = this.state.teamPlayers.filter(function (p) {
-                                                return p.position == i;
+                                                return p.position === i;
                                             })[0];
                                             let classes;
                                             switch (i) {
