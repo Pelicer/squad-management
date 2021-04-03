@@ -9,27 +9,29 @@ export default class AgeStatistics extends React.Component {
 
     componentDidMount() {
         var i = 0, high = [], low = [];
-        this.state.teams.forEach(team => {
-            let players = team.teamPlayers;
-            let total = 0;
-            players.forEach(player => {
-                total += player.age;
-            });
-            var TeamAvarages = { TeamName: team.teamName, AverageAge: (total / players.length) };
-            high.push(TeamAvarages);
-            low.push(TeamAvarages);
-
-            if (i === this.state.teams.length - 1) {
-                high.sort((a, b) => (b.AverageAge > a.AverageAge) ? 1 : ((a.AverageAge > b.AverageAge) ? -1 : 0));
-                low.sort((a, b) => (b.AverageAge < a.AverageAge) ? 1 : ((a.AverageAge < b.AverageAge) ? -1 : 0));
-                low = low.splice(0, 5);
-                low.sort((a, b) => (b.AverageAge > a.AverageAge) ? 1 : ((a.AverageAge > b.AverageAge) ? -1 : 0));
-                this.setState({
-                    highestAvg: high.splice(0, 5), lowestAvg: low
+        if (this.state.teams !== null) {
+            this.state.teams.forEach(team => {
+                let players = team.teamPlayers;
+                let total = 0;
+                players.forEach(player => {
+                    total += player.age;
                 });
-            }
-            i++;
-        });
+                var TeamAvarages = { TeamName: team.teamName, AverageAge: (total / players.length) };
+                high.push(TeamAvarages);
+                low.push(TeamAvarages);
+
+                if (i === this.state.teams.length - 1) {
+                    high.sort((a, b) => (b.AverageAge > a.AverageAge) ? 1 : ((a.AverageAge > b.AverageAge) ? -1 : 0));
+                    low.sort((a, b) => (b.AverageAge < a.AverageAge) ? 1 : ((a.AverageAge < b.AverageAge) ? -1 : 0));
+                    low = low.splice(0, 5);
+                    low.sort((a, b) => (b.AverageAge > a.AverageAge) ? 1 : ((a.AverageAge > b.AverageAge) ? -1 : 0));
+                    this.setState({
+                        highestAvg: high.splice(0, 5), lowestAvg: low
+                    });
+                }
+                i++;
+            });
+        }
     }
 
     render() {

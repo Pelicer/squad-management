@@ -6,14 +6,21 @@ export default class Creation extends React.Component {
 
     constructor(props) {
         super(props);
+        let teamsList = JSON.parse(localStorage.getItem("teamsList"));
         if (this.props.location.search !== "" && this.props.location.search.indexOf("id") !== -1) {
             let id = this.props.location.search.replace("?id=", "");
-            let teamsList = JSON.parse(localStorage.getItem("teams"));
-            let team = teamsList.filter(function (team) {
-                return team.teamId = id;
-            })[0];
-            this.state = { playersSearchList: [], teamId: id, teamPlayers: team.teamPlayers, teamName: team.teamName, teamDescription: team.teamDescription, teamType: team.teamType, teamTags: team.teamTags, teamWebsite: team.teamWebsite, teamFormation: team.teamFormation };
+            if (teamsList == null) {
+                this.state = { playersSearchList: [], teamId: "", teamPlayers: [], teamName: "", teamDescription: "", teamType: "", teamTags: [], teamWebsite: "", teamFormation: "3 - 2 - 2 - 3" };
+                localStorage.setItem("teamsList", "[]");
+            } else {
+                let team = teamsList.filter(function (team) {
+                    return team.teamId = id;
+                })[0];
+                this.state = { playersSearchList: [], teamId: id, teamPlayers: team.teamPlayers, teamName: team.teamName, teamDescription: team.teamDescription, teamType: team.teamType, teamTags: team.teamTags, teamWebsite: team.teamWebsite, teamFormation: team.teamFormation };
+            }
         } else {
+            if (teamsList == null)
+                localStorage.setItem("teamsList", "[]");
             this.state = { playersSearchList: [], teamId: "", teamPlayers: [], teamName: "", teamDescription: "", teamType: "", teamTags: [], teamWebsite: "", teamFormation: "3 - 2 - 2 - 3" };
         }
 
@@ -35,6 +42,7 @@ export default class Creation extends React.Component {
         this.playerDrop = this.playerDrop.bind(this);
     }
     getPlayers(playerName) {
+        console.log(process.env.REACT_APP_API_FOOTBALL_KEY);
         if (playerName.length >= 4) {
             fetch("https://api-football-v1.p.rapidapi.com/v2/players/search/" + playerName, {
                 "withCredentials": "false",
@@ -173,33 +181,45 @@ export default class Creation extends React.Component {
     }
 
     saveTeam() {
-        let teamsList = JSON.parse(localStorage.getItem("teams"))
-        if (this.state.teamId == "") {
+        let teamsList = JSON.parse(localStorage.getItem("teamsList"));
+        console.log(teamsList);
+        console.log(this.state);
+        if (teamsList !== null) {
+            if (this.state.teamId == "") {
+                if (this.checkFields(this.state)) {
+                    this.state.teamId = uuidv4();
+                    delete this.state.playersSearchList;
+                    teamsList.push(this.state);
+                    localStorage.setItem("teamsList", JSON.stringify(teamsList));
+                    window.location.replace("/");
+                }
+            } else {
+                let team = teamsList.filter((t) => {
+                    return t.teamId === this.state.teamId;
+                })[0]
+                team = this.state;
+                teamsList.forEach((t) => {
+                    if (t.teamId === team.teamId) {
+                        t.teamName = team.teamName;
+                        t.teamDescription = team.teamDescription;
+                        t.teamWebsite = team.teamWebsite;
+                        t.teamTags = team.teamTags;
+                        t.teamType = team.teamType;
+                        t.teamFormation = team.teamFormation;
+                        t.teamPlayers = team.teamPlayers;
+                    }
+                });
+                if (this.checkFields(team)) {
+                    localStorage.setItem("teamsList", JSON.stringify(teamsList));
+                    window.location.replace("/");
+                }
+            }
+        } else {
             if (this.checkFields(this.state)) {
                 this.state.teamId = uuidv4();
                 delete this.state.playersSearchList;
                 teamsList.push(this.state);
-                localStorage.setItem("teams", JSON.stringify(teamsList));
-                window.location.replace("/");
-            }
-        } else {
-            let team = teamsList.filter((t) => {
-                return t.teamId === this.state.teamId;
-            })[0]
-            team = this.state;
-            teamsList.forEach((t) => {
-                if (t.teamId === team.teamId) {
-                    t.teamName = team.teamName;
-                    t.teamDescription = team.teamDescription;
-                    t.teamWebsite = team.teamWebsite;
-                    t.teamTags = team.teamTags;
-                    t.teamType = team.teamType;
-                    t.teamFormation = team.teamFormation;
-                    t.teamPlayers = team.teamPlayers;
-                }
-            });
-            if (this.checkFields(team)) {
-                localStorage.setItem("teams", JSON.stringify(teamsList));
+                localStorage.setItem("teamsList", JSON.stringify(teamsList));
                 window.location.replace("/");
             }
         }

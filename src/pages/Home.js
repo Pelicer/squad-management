@@ -9,7 +9,8 @@ import PickRatio from '../components/PickRatio';
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    let teams = localStorage.getItem("teams");
+    let teams = localStorage.getItem("teamsList");
+    console.log(teams);
     this.state = { teams: JSON.parse(teams) }
     this.deleteTeam = this.deleteTeam.bind(this);
     this.editTeam = this.editTeam.bind(this);
@@ -49,7 +50,7 @@ export default class Home extends React.Component {
     });
     teamsList.splice(index, 1);
     this.setState({ teams: teamsList });
-    localStorage.setItem("teams", JSON.stringify(teamsList));
+    localStorage.setItem("teamsList", JSON.stringify(teamsList));
     ReactDOM.render(
       <AgeStatistics teams={this.state.teams} />,
       document.getElementById("ageWrapper")

@@ -8,31 +8,33 @@ export default class PickRatio extends React.Component {
 
     componentDidMount() {
         let playersRatio = { players: [], total: 0 };
-        this.props.teams.forEach(team => {
-            team.teamPlayers.forEach(player => {
-                let p = playersRatio.players.filter(pl => {
-                    return pl.id === player.id;
-                })[0];
-                if (p !== undefined) {
-                    p.picks++;
-                } else {
-                    playersRatio.players.push({ id: player.id, name: player.name, initials: player.initials, picks: 1 });
+        if (this.state.teams !== null) {
+            this.props.teams.forEach(team => {
+                team.teamPlayers.forEach(player => {
+                    let p = playersRatio.players.filter(pl => {
+                        return pl.id === player.id;
+                    })[0];
+                    if (p !== undefined) {
+                        p.picks++;
+                    } else {
+                        playersRatio.players.push({ id: player.id, name: player.name, initials: player.initials, picks: 1 });
+                    }
+                    playersRatio.total++;
+                })
+            });
+            let most = { ratio: 0 }, least = { ratio: 100 };
+            playersRatio.players.forEach(player => {
+                player.ratio = ((player.picks / playersRatio.total) * 100).toFixed(1);
+                if (player.ratio > most.ratio) {
+                    most = player;
                 }
-                playersRatio.total++;
+                if (player.ratio < least.ratio) {
+                    least = player;
+                }
             })
-        });
-        let most = { ratio: 0 }, least = { ratio: 100 };
-        playersRatio.players.forEach(player => {
-            player.ratio = ((player.picks / playersRatio.total) * 100).toFixed(1);
-            if (player.ratio > most.ratio) {
-                most = player;
+            if (most.initials !== undefined && least.initials !== undefined) {
+                this.setState({ most: most, least: least });
             }
-            if (player.ratio < least.ratio) {
-                least = player;
-            }
-        })
-        if (most.initials !== undefined && least.initials !== undefined) {
-            this.setState({ most: most, least: least });
         }
     }
 
