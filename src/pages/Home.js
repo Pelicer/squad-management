@@ -10,7 +10,6 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     let teams = localStorage.getItem("teamsList");
-    console.log(teams);
     this.state = { teams: JSON.parse(teams) }
     this.deleteTeam = this.deleteTeam.bind(this);
     this.editTeam = this.editTeam.bind(this);

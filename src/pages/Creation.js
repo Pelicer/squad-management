@@ -42,7 +42,6 @@ export default class Creation extends React.Component {
         this.playerDrop = this.playerDrop.bind(this);
     }
     getPlayers(playerName) {
-        console.log(process.env.REACT_APP_API_FOOTBALL_KEY);
         if (playerName.length >= 4) {
             fetch("https://api-football-v1.p.rapidapi.com/v2/players/search/" + playerName, {
                 "withCredentials": "false",
@@ -111,7 +110,6 @@ export default class Creation extends React.Component {
                 document.getElementById("tagsInput").value = "";
                 break;
             case 8:
-                console.log(event);
                 let tags = this.state.teamTags;
                 if (event.target.value.length <= 0) {
                     tags.splice(tags.length - 1, 1);
@@ -182,8 +180,6 @@ export default class Creation extends React.Component {
 
     saveTeam() {
         let teamsList = JSON.parse(localStorage.getItem("teamsList"));
-        console.log(teamsList);
-        console.log(this.state);
         if (teamsList !== null) {
             if (this.state.teamId === "") {
                 if (this.checkFields(this.state)) {
