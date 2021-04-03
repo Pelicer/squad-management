@@ -359,7 +359,7 @@ export default class Creation extends React.Component {
                                     {
                                         [...Array(11)].map((o, i) => {
                                             let player = this.state.teamPlayers.filter(function (p) {
-                                                return p.position === i;
+                                                return parseInt(p.position) === parseInt(i);
                                             })[0];
                                             let classes;
                                             switch (i) {
