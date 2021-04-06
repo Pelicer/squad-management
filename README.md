@@ -1,6 +1,6 @@
 # Venturus - 1.0.0, Squad Management Tool
 
-This project was proposed by Venturus company as a React challange to test my coding skills. Below you will find descriptions of my methods whilst creating this repository as well as a how-to in order to run the project yourself.
+This project was proposed by Venturus company as a React challenge to test my coding skills. Below you will find descriptions of my methods whilst creating this repository as well as a how-to in order to run the project yourself.
 
 ## Summary
 
